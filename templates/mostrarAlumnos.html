@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename= 'css/estilos.css') }}">
+        <title>Mi pagina web</title>
+    </head>
+
+
+    <body>
+
+
+
+
+        <!-- Inicia div del buscador -->
+        <div class="buscador">
+            <form method="POST" action="{{url_for('procesarAlumnos')}}">
+
+                <input type="hidden" name="nombre" class="input_buscar" placeholder="¿Qué buscas?">
+                <button type="submit" class="btn_buscar" > <img src="/static/css/camara.png" height ="32" width="32" /></button>
+
+                <br><input type="hidden" name="texto" class="input_buscar" placeholder={{buscar}} , value={{buscar}}>
+
+            </form>
+        </div>
+
+
+
+
+        <!-- Inicia div del buscador -->
+        <div class="buscador">
+            <form method="POST" action="{{url_for('procesarAlumnos')}}">
+
+               <input type="hidden" name="borrar" class="input_buscar" placeholder="¿Qué buscas?" value="1">
+
+                <button type="submit"  class="btn_buscar" > <img src="/static/css/cancel.png" height ="32" width="32"  /></button>
+
+            </form>
+        </div>
+
+        <!-- Fin div del buscador -->
+
+
+        <!-- Inicio del div lateral -->
+        <div class="lateral">
+
+            <div class="video" onclick="location.href='https://www.youtube.com/watch?v=jfKfPfyJRdk&ab_channel=LofiGirl'">
+                <img src="static/css/foto.png" height ="280" width="360" />
+            </div>
+
+        </div>
+        <!-- Fin del div lateral -->
+
+
+
+
+
+        <!-- Inicio del div centro -->
+        <div class="centro">
+
+
+            <!-- Inicio del div resultado -->
+            <div class="resultado">
+                <h2> Resultados para: {{buscar}} </h2>
+            </div>
+            <!-- Fin del div resultado -->
+
+
+            <!-- Ciclo para recorrer la lista de nombres en html -->
+            {% for  fila in recuperar %}
+                <div class="productos" onclick="location.href='{{ fila[1][0][0]}}'">
+                        <h4> {{ "Palabra : " + fila[0] }}</h4>
+                        <h4> {{ "Idioma: " +  fila[1][0][1] }}</h4>
+                        <h4> {{ fila[1][0][0] }} </h4>
+
+                </div>
+           {% endfor %}
+
+
+
+        </div>
+        <!-- Fin del div centro -->
+
+
+    </body>
+</html>
