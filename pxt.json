@@ -6,7 +6,8 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "Área triangulo": "github:20183707/rea-triangulo#1f1555f89e5759c5d77110dc41323f2b0947085c"
+        "Área triangulo": "github:20183707/rea-triangulo#1f1555f89e5759c5d77110dc41323f2b0947085c",
+        "buscador": "github:20183707/buscador#v0.0.1"
     },
     "files": [
         "main.blocks",
